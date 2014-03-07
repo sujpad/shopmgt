@@ -1,0 +1,696 @@
+
+/* Main tags */
+body 
+{
+	background: transparent url(../img/bg_img.gif) repeat scroll 0 0;
+	color:#303030; 
+	/*font:76% Verdana,Tahoma,Arial,sans-serif; */
+        font:12px 'Lucida Sans', sans-serif;
+	margin:0; 
+	padding:0; 
+	text-align:center;
+}
+
+/* Main container */
+#container 
+{
+	background:#FFFFFF; 
+	color:#000000; 
+	margin:0 auto; 
+	width:780px; 
+	min-height:900px; 
+	padding:0 0 20px 0;	
+	text-align:left; 
+	font-size: 0.9em;
+	border-top : 0px none;
+	position: relative;
+}
+
+/* Header section */
+#sitename {
+	color:#FFFFFF; 
+	background: transparent url(../img/sample.jpg) repeat scroll 0 0;
+	height:75px; 
+	margin:0 auto;
+	margin-bottom: 2px;
+	text-align:left;
+	padding-left: 5px;
+	border-bottom: 1px solid #2075C8;
+	border-right: 1px solid #2075C8;
+	border-left: 1px solid #2075C8;
+}
+#sitename h1,#sitename h2 {
+	font-weight:400; 
+	letter-spacing:-1px; 
+	margin:0; 
+	padding:0;}
+
+#sitename h1 {
+	font-size:2.4em; 
+	padding-top:10px;}
+
+#sitename h2 {
+	font-size:1.6em;}
+
+#welcome_wrapper {
+	height: 15px;
+}
+
+#welcome_user {
+	text-align:right;
+	font-weight: bold;
+	color : black;
+	margin-right: 10px;
+	float: right;
+	padding: 0 5px;
+}
+
+#welcome_user a {
+	text-decoration: none;
+	color : black;
+}
+#welcome_user a:hover {
+	text-decoration: underline;
+	color : black;
+}
+
+#login_container
+{
+	margin: 120px auto 160px;
+	min-height: 200px; 
+	width: 500px; 
+	overflow: auto;
+	padding: 20px;
+	font-color: black;
+}
+#login_table
+{
+	/*margin-top: 50px;
+	*/
+	float: left;
+	width: 250px;
+}
+
+.colored_div, .colored_square_div
+{
+	border: 1px solid #2075C8;
+	background-color: #E7F0F8;
+}
+
+.colored_div
+{
+	-moz-border-radius: 8px;
+}
+
+.blue_button
+{
+	background: #5CA8E4;
+	border: 1px solid #2075C8;
+	-moz-border-radius : 4px;
+	cursor: pointer;
+        font:12px 'Lucida Sans', sans-serif;
+        font-weight:bold;
+	padding: 3px;
+}
+
+.gray_button
+{
+	color: #FFFFFF;
+	background: #595959;
+	border: 1px solid #1C1C1C;
+	-moz-border-radius : 4px;
+	cursor: pointer;
+        font:12px 'Lucida Sans', sans-serif;
+        font-weight:bold;
+	padding: 3px;
+}
+
+.error_box
+{
+	background: #FED4AF;
+	color: red;
+	font-weight: bold;
+	font-size: 1em;
+	padding: 3px 0px 3px 0px;
+	border: 1px solid red;
+	margin-top: 10px;
+	text-align: center;
+
+  	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	-moz-border-radius-bottomright: 8px;
+
+	opacity: 0.6;
+	filter : alpha(opacity=60);
+	zoom : 1;
+}
+
+/*
+#picture_div {
+	margin-top: 100px;
+	height: 280px; 
+	margin-left: 170px;
+	float:left; 
+	display:none;
+}
+
+*/
+
+#login_table table
+{
+	width : 100%;
+}
+
+#info
+{
+	/*height : 100px;*/
+	width : 220px;
+	float : right;
+	margin-left: 15px;
+	/*margin-top: 120px;*/
+}
+
+
+#info p
+{
+    font-weight: bold;
+    font-size : 0.9em;
+}
+
+#add_form_div, #search_form_div, #modify_form_div, #update_form_div 
+{
+	width: 720px;
+	height: 152px; 
+	margin: 20px auto;
+	padding: 0px 10px;
+}
+
+#search_form_div
+{
+	height: 100px; 
+}
+
+#modify_form_div p, #update_form_div p {
+	color : black;
+	font-weight: bold;	
+}
+
+/* Footer */
+#footer {
+	background-color: #5CA8E4;
+	color:#000000;
+	font-size:9px; 
+	margin:0;
+	padding-top: 10px;
+	text-align: center ; 
+	width:780px;
+	position: absolute;
+	bottom: 0px;
+	border-top: 1px solid #2075C8;
+	height: 35px;
+	overflow: hidden;
+
+	opacity: 1.0;
+	filter : alpha(opacity=100);
+	zoom : 1;
+}
+
+#footer span
+{
+	font-size:11px; 
+	font-weight:bold; 
+}
+
+
+#tableContainer
+{
+        border: 1px solid #d8d8d8;
+	height: 420px; 
+        overflow: scroll;
+}
+
+table
+{
+	width : 100%;
+	background-color: #E7F0F8;
+}
+
+table.no_border
+{
+	background-color: transparent;
+}
+
+table th, .footer {
+	padding : 5px 2px;
+	/*background-color: #CC6633;*/
+	/*background-color: #565656;*/
+	/*background-color: #FF8400;*/
+	background-color: #5CA8E4;
+	font-weight : bold;
+	color : white;
+	border : 1px solid #d8d8d8;
+}
+
+
+table td , .not_highlighted
+{
+	padding : 3px 2px;
+	border: 1px solid #d8d8d8;
+}
+
+table th a { 
+	text-decoration: none;
+	color: white;
+}
+
+table td a {
+	text-decoration: none;
+	color: black;
+}
+
+table.no_border td {
+	border : 0px;
+}
+a img {
+        border: 0;
+}
+
+/* Main menu ----------- [  */
+.main_menu
+{
+        font:12px 'Lucida Sans', sans-serif;
+        font-weight:bold;
+        height:22px;
+        line-height:22px;
+        text-align:center;
+}
+.main_menu ul
+{
+	margin: 0;
+        list-style:none;
+}
+.main_menu li
+{
+        float:left;
+	margin-left: 5px;
+}
+.main_menu li a
+{
+        display:block;
+        color:#000000;
+        text-decoration:none;
+        padding:0 25px;
+}
+
+.main_menu li.current a
+{
+        color:#FFFFFF;
+	background: #1C1C1C;
+	-moz-border-radius : 4px;
+	/*border:1px solid #1C1C1C;
+	border-bottom: 0px none;*/
+}
+
+.main_menu li a:hover
+{
+        color:#FFF1DC;
+	background: #3A3A3A;
+	-moz-border-radius : 4px;
+	/*border:1px solid #3A3A3A;
+	border-bottom: 0px none;*/
+}
+
+/*html>body .main_menu
+{
+	margin-top: -5px;
+}
+*/
+
+/* Main menu ----------- ]  */
+
+
+/* menu --------- [  */
+.menu
+{
+        font:12px 'Lucida Sans', sans-serif;
+        font-weight:bold;
+        height:22px;
+	line-height: 22px;
+        text-align:center;
+	background: #1C1C1C;
+	-moz-border-radius : 4px;
+	margin-top: 3px;
+	margin-bottom: 10px;
+}
+.menu ul
+{
+	margin: 0;
+        list-style:none;
+}
+.menu li
+{
+        float:left;
+	margin-left: 5px;
+}
+.menu li a
+{
+        display:block;
+        color:#FFF1DC;
+        text-decoration:none;
+        padding:0 25px;
+}
+
+.menu li.current a
+{
+        color:#1C1C1C;
+	background: #C4D256;
+	/*border:1px solid #C4D256;
+	border-bottom: 0px none;*/
+	-moz-border-radius : 4px;
+}
+
+.menu li a:hover
+{
+        color:#1C1C1C;
+	background: #D2E065;
+	/*border:1px solid #D2E065;
+	border-bottom: 0px none;*/
+	-moz-border-radius : 4px;
+}
+/* menu ----------- ]*/
+
+#main_billing_div 
+{
+	width: 370px;
+	height: 700px;
+	float: left;
+	/*margin: 0px 5px 20px 20px;*/
+	margin: 0px 5px 20px 10px;
+	padding: 5px;
+}
+
+#stock_list 
+{
+	padding: 10px 5px;
+	height : 320px;
+	margin-bottom: 10px;
+	-moz-border-radius: 8px;
+}
+
+#bills
+{
+	height : 320px;
+	margin: 20px auto 10px;
+}
+
+#billing 
+{
+	width : 320px;
+	height: 460px;
+	float: right;
+	/*margin: 0px 20px 20px 0px;*/
+	margin: 0px 10px 20px 0px;
+}
+
+#billed_items
+{
+	position: relative;
+	top: -175px;
+	/*margin-top : -175px;*/
+}
+
+
+
+#stock_list_table, #billing_table, #bill_table {
+        overflow: auto;
+	/*border:1px solid #d8d8d8;*/
+}
+#stock_list_table {
+	height : 200px;
+}
+
+#billing_table {
+	height : 280px;
+}
+
+#bill_table {
+	height : 300px;
+}
+
+#stock_list p, #bills p, #billing p{
+	font-weight : bold;
+	font-size : 1.1em;
+	text-align : center;
+}
+
+.message_field, #customer_list .message_field
+{
+	text-align : left;
+	color : blue;
+	font-weight: bold;
+}
+
+.error_field
+{
+	text-align : left;
+	color : red;
+	font-weight: bold;
+}
+
+#search_stock {
+	margin-top : 6px;
+}
+
+.number , .right_align
+{
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.highlighted
+{
+	background-color: #CC9960;
+}
+
+/*.not_highlighted
+{
+	background-color: white;
+}
+*/
+
+#customer_list
+{
+	height: 610px;
+	width : 740px;
+	margin: 10px auto;
+}
+
+#search_cust_div
+{
+	padding: 10px 5px;
+}
+
+#customer_list_table
+{
+	height: 410px;
+	overflow: auto;
+}
+
+#customer_list p, #customer_list p a, #customer_list_table p a, #alarm_div p a
+{
+	font-weight: bold;
+	text-decoration : none;
+	color: black;	
+}
+
+#alarm_div
+{
+	height: 380px;
+	width : 420px;
+	margin: 20px auto ;
+	padding: 20px;
+}
+
+#alarm_table_div
+{
+	width: 400px;
+	height: 290px;
+	overflow: auto;
+}
+
+table td span 
+{
+	font-size: 0.8em;
+	color : gray;
+}
+
+#alarm_div p span, #view_bills_div p span, #bills p span
+{
+	font-size: 0.8em;
+	color : gray;
+}
+
+#customer_list p  , #user_list_div p, #role_list_div p, #change_password_div p
+{
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+/* -------------- [ Customer Name suggestions -------------- */
+#scroll
+{
+        position: relative;
+        margin: 0 auto;
+        visibility: hidden;
+        background-color: white;
+        z-index: 1;
+        width: 300px;
+        height: 180px;
+        border-top-style: solid;
+        border-right-style: solid;
+        border-left-style: solid;
+        border-collapse: collapse;
+        border-bottom-style: solid;
+        border-color: #000000;
+        border-width: 1px;
+        overflow: auto
+}
+#scroll div
+{
+        margin: 0 auto;
+        text-align:left;
+}
+#suggest table
+{
+        width: 100%;
+        font-size: 11px;
+        font-weight: normal;
+        color: #676767;
+        text-decoration: none;
+        border: 0px;
+        padding: 0px;
+        text-align:left;
+        margin: 0px;
+}
+.highlightrow
+{
+        background-color: #999999;
+        cursor: pointer;
+}
+/* -------------- Customer Name suggestions ]  -------------- */
+
+
+#search_bills_div 
+{
+	width: 720px;
+	height: 85px;
+	margin: 10px auto 15px;
+	border:1px solid #d8d8d8;
+	-moz-border-radius: 8px;
+	padding: 15px;
+}
+
+#view_bills_div 
+{
+	width: 600px;
+	height: 420px;
+	margin: 0 auto;
+}
+
+#view_bills_table
+{
+	height: 380px;
+	overflow: auto;
+}
+
+#view_bills_div p
+{
+	font-weight : bold;
+	font-size : 1.1em;
+	text-align : center;
+}
+
+/*
+#bill_details 
+{
+	width: 30%;
+	height: 420px;
+	float: left;
+	margin-left: 5%;
+}
+
+#bill_details_table
+{
+	height: 90%;
+	overflow: auto;
+}
+
+#bill_details p
+{
+	font-weight : bold;
+	font-size : 1.1em;
+	text-align : center;
+}
+*/
+
+.hide
+{
+	display : none;
+}
+
+#change_password_div
+{
+	height: 280px; 
+	width : 400px; 
+	margin: 20px auto;
+	padding: 5px;
+}
+#change_password_sub_div
+{
+	padding: 15px 10px 10px 10px;
+	border: 1px solid #d8d8d8;
+}
+
+#user_list_div, #role_list_div
+{
+	height: 410px;
+	width : 600px;
+	padding: 0 10px;
+	margin: 20px auto;
+}
+
+#user_list_table, #role_list_table
+{
+	height: 370px;
+	overflow: auto;
+}
+
+.header
+{
+	background-color: #003366;
+	color : white;
+	font-weight: bold;
+}
+
+#main_table_container 
+{
+	margin:0 auto;
+	width: 740px;
+}
+
+#export_xl_div p , #export_xl_div p a
+{
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+
+legend
+{
+	font-weight: bold;
+}
+

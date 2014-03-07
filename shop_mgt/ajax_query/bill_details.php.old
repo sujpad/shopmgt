@@ -1,0 +1,19 @@
+<?php
+
+include("../common/auth.php");
+
+if( ! authenticate() )
+        header('location:index.php?msg=login');
+
+include("../config/config.php");
+include("../common/connect_db.php");
+include("../lib/php_functions.php");
+
+$bill_num = $_GET['bill_num'];
+
+$query = "SELECT item_id, quantity, item_name FROM bill_details INNER JOIN items on bill_details.item_id = items.id WHERE bill_details.bill_num = {$bill_num};";
+
+list_bill_details($query, $db_conn);
+
+include("../common/close_db.php");
+?>

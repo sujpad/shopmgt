@@ -1,0 +1,48 @@
+<script type='text/javascript'>
+
+createXmlHttpRequestObject();   //Creates only if the object doesn't exist already
+
+var timeoutId = -1;
+
+function export_to_excel()
+{
+        // proceed only if the xmlHttp object isn't busy
+        if (xmlHttp.readyState == 4 || xmlHttp.readyState == 0)
+        {
+                xmlHttp.open("GET", "ajax_query/export_xl.php",  false);
+                xmlHttp.send(null);
+                var xmlResponseText = xmlHttp.responseText;
+
+		alert(xmlResponseText);
+		<?
+			header("Content-Type: application/vnd.ms-excel");
+			header("Content-Disposition: attachment; filename=item_list.xls");
+			header("Pragma: no-cache");
+			header("Expires: 0");
+		?>
+        }
+}
+
+/*
+function handleServerResponse()
+{
+        if (xmlHttp.readyState == 4)
+        {
+                if (xmlHttp.status == 200)
+                {
+			xmlResponseText = xmlHttp.responseText;
+			document.getElementById("tableContainer").innerHTML =
+			 xmlResponseText ;
+
+			ts_makeSortable(document.getElementById('item_list_table'));
+                }
+                else
+                {
+			alert("There was a problem accessing the server: " + xmlHttp.statusText);
+                }
+        }
+}
+*/
+
+</script>
+

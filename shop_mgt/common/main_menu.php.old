@@ -1,0 +1,35 @@
+<!--div class="rhm1">
+	<div class="rhm1-right">
+	</div>
+	<div class="rhm1-left">
+	</div-->
+	<div class="main_menu" id="main_menu">
+		<ul>
+			<?
+			if( $_SESSION['permissions']['inventory'] )
+				echo '<li><a href="item_list.php"><span>Inventory</span></a></li>';
+			if($_SESSION['permissions']['billing'])
+				echo '<li><a href="billing.php"><span>Billing</span></a></li>';
+			if($_SESSION['permissions']['customer_info'])
+				echo '<li><a href="customers.php"><span>Customer Info</span></a></li>';
+			
+			if($_SESSION['permissions']['alarms'])
+				echo '<li><a href="alarms.php"><span>Alarms</span></a></li>';
+
+			if( $_SESSION['permissions']['administration'] && 
+				( $_SESSION['permissions']['view_user'] || 
+				  $_SESSION['permissions']['amd_user'] ) )
+				echo '<li><a href="users.php"><span> Administration </span></a></li>';
+			else if ( $_SESSION['permissions']['administration'] &&
+				  ( $_SESSION['permissions']['view_role'] || 
+				    $_SESSION['permissions']['amd_role'] ) )
+				echo '<li><a href="user_roles.php"><span> Administration </span></a></li>';
+			else if ( $_SESSION['permissions']['administration'] &&
+					$_SESSION['permissions']['change_password'] )
+				echo '<li><a href="change_password.php"><span> Profile </span></a></li>';
+			?>
+		</ul>
+		<script language="javascript">setMainMenu()</script>
+	</div>
+<!--/div-->
+

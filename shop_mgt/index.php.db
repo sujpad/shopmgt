@@ -1,0 +1,103 @@
+
+<? 
+
+include("config/config.php");
+include("common/db.php");
+
+$message=isset($_GET['msg']) ? $_GET['msg'] : "";
+
+require_once("common/header.php");
+include_header("login_name");
+
+?>
+
+<?
+$error_msg="";
+if(isset($_POST['login']))
+{
+        session_start();
+        //include("common/connect_db.php");
+	$db = new database();
+        $error_msg = $db->connect();
+
+	echo "error_msg = $error_msg";
+	
+	if( ! $error_msg )
+	{
+        $tbl_name="users"; // Table name
+
+        // username and password sent from form
+        $my_username= strip_tags($_POST['login_name']);
+        $my_password= sha1(strip_tags($_POST['password']));
+
+        $sql="SELECT ID FROM $tbl_name WHERE name='$my_username' and password='$my_password' LIMIT 1;";
+        $result=mysql_query($sql);
+	
+	if( !$result )
+	{
+		$error_msg = mysql_error();
+	}
+	else
+	{
+	        // Mysql_num_row is counting table row
+        	$count=mysql_num_rows($result);
+
+	        if($count==1){
+        	        // Register $my_username, $my_password and redirect to file "login_success.php"
+                	echo "login success";
+                	$row = mysql_fetch_assoc($result);
+                	$_SESSION['ID']=$row['ID'];
+                	$_SESSION['username']=$my_username;
+
+			$error_msg = $db->close();
+
+                	header("location:item_list.php");
+        	}
+        	else {
+			$error_msg=mysql_error();
+        	}
+	}
+	}
+}
+?>
+
+        <div id="picture_div">
+                <img src="img/ganesha.jpg" height="180" width="200" class="thumbnail"  />
+        </div>
+
+        <div id="login_table" >
+        <form name="login_input" action="" method="post">
+                <table class='no_border' >
+                        <tr>
+                          <td>Login</td>
+                          <td><input type="text" id="login_name" name="login_name"></input> </td>
+                        </tr>
+                        <tr>
+                          <td>Password</td>
+                          <td><input type="password" id="password" name="password"></input></td>
+                        </tr>
+                        <tr>
+                                <td> &nbsp; </td>
+                                <td>
+                                        <input type="submit" id="login" name="login" value="Login"> </input>
+                                </td>
+                        </tr>
+			<tr>
+				<td colspan='2'> &nbsp; </td>
+			</tr>
+			<tr>
+				<td id="error_line" colspan='2'> <?if('error_msg') echo $error_msg; ?> &nbsp; </td>
+			</tr>
+                </table>
+        </form>
+        </div>
+        <div id='info'>
+		<p> Please use the following login name and password to login </p>
+		<p> Login 	: demo </p>
+		<p> Password 	: demo </p>
+        </div>
+
+<?
+//require("login/login_page.php");
+require("common/footer.php");
+?>

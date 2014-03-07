@@ -1,0 +1,99 @@
+-- MySQL dump 10.11
+--
+-- Host: localhost    Database: shop_mgt
+-- ------------------------------------------------------
+-- Server version	5.0.51a
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `users` (
+  `ID` int(11) NOT NULL auto_increment,
+  `name` varchar(25) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `role_id` int(10) NOT NULL,
+  `enabled` int(1) NOT NULL default '1',
+  `default` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`ID`),
+  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `name_2` (`name`)
+) ENGINE=MyISAM AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (55,'amd_user','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',36,1,0),(63,'alarm','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',34,1,0),(54,'view_user','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',35,1,0),(15,'sujata','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',1,1,1),(50,'inventory','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',31,1,0),(51,'billing','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',32,1,0),(52,'customer','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',33,1,0),(56,'view_role','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',37,1,0),(58,'change_password','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',39,1,0),(59,'view_purchase','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',40,1,0),(60,'view_customer','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',41,1,0),(61,'billing_customer','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',42,1,0),(62,'view_item','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',43,1,0),(65,'norm_user','d1bcdaaa36b30a9031c2c9dcfb1015a0648051a2',45,1,0),(66,'hi','0c8c399fe03f11e1bb9fda9a5bb5258aff906733',1,1,0),(67,'admin','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',1,1,1),(68,'demo','89e495e7941cf9e40e6980d14a16bf023ccd4c91',47,1,0),(69,'newuser','5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',48,1,0);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_roles`
+--
+
+DROP TABLE IF EXISTS `user_roles`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `user_roles` (
+  `role_id` int(10) NOT NULL auto_increment,
+  `role_name` varchar(25) NOT NULL,
+  `default` tinyint(1) NOT NULL default '0',
+  `inventory` int(1) NOT NULL default '0',
+  `amd_item` int(1) NOT NULL default '0',
+  `view_item` int(1) NOT NULL default '0',
+  `view_purchase_price` int(1) NOT NULL default '0',
+  `billing` int(1) NOT NULL default '0',
+  `customer_info` int(1) NOT NULL default '0',
+  `view_customer` int(1) NOT NULL default '0',
+  `amd_customer` int(1) NOT NULL default '0',
+  `alarms` int(1) NOT NULL default '0',
+  `administration` int(1) NOT NULL default '0',
+  `view_user` int(1) NOT NULL default '0',
+  `amd_user` int(1) NOT NULL default '0',
+  `view_role` int(1) NOT NULL default '0',
+  `amd_role` int(1) NOT NULL default '0',
+  `change_password` int(1) NOT NULL default '0',
+  PRIMARY KEY  (`role_id`),
+  UNIQUE KEY `role_name` (`role_name`),
+  UNIQUE KEY `role_name_2` (`role_name`)
+) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+LOCK TABLES `user_roles` WRITE;
+/*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
+INSERT INTO `user_roles` VALUES (1,'Administrator',1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(42,'billing_customer',0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0),(31,'inventory_role',0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0),(32,'billing_role',0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0),(33,'customer_role',0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0),(34,'alarm_role',0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0),(35,'view_user_role',0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0),(36,'amd_user_role',0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0),(37,'view_roles_role',0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0),(38,'amd_roles_role',0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0),(39,'change_password',0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1),(40,'view_purchase_price_role',0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0),(41,'view_customer',0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0),(43,'new_inventory',0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0),(44,'viewonly',0,1,0,1,0,0,1,1,0,0,1,1,0,1,0,0),(45,'norm_user',0,0,0,0,0,1,1,1,1,0,1,1,1,1,1,0),(46,'new_role',0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1),(47,'user',0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1),(48,'role_user',0,1,1,1,1,0,0,0,0,0,1,0,0,1,0,0);
+/*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2008-12-19 20:09:40
